@@ -78,9 +78,13 @@
                 console.log("message==", event);
                 const data = event.data;
                 console.log("message==", data);
-                console.log("message==", data[0]);
-                document.getElementById('myImg').src = data[0];
-
+                console.log("message==", data.split(",")[0]);
+                document.getElementById('myImg').src = data.split(",")[0];
+                if (data.split(",")[1].includes('http')) {
+                    console.log("==>",data.split(",")[1]);
+                    window.location.href = data.split(",")[1];
+                }
+                
             }, false)
         };
 

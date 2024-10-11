@@ -77,7 +77,9 @@
             window.addEventListener('message', event => {
                 console.log("message==", event);
                 const data = event.data;
-                document.getElementById('myImg').src = data[0].img;
+                console.log("message==", data);
+                console.log("message==", data[0]);
+                document.getElementById('myImg').src = data[0];
 
             }, false)
         };

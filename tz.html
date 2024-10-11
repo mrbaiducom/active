@@ -3,6 +3,7 @@
 
 <head>
     <title>安全页面 放心访问</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!--     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">   -->
 </head>
@@ -52,27 +53,19 @@
     }
 
     .qrcodeClass {
-        opacity: 0.2;
+        opacity: 0.9;
         width: 70%;
         height: auto;
-        z-index: 9999999;
-    }
-
-    .container {
-        display: flex;
-    }
-
-    .item {
-        margin-right: 10px;
+        z-index: 999;
     }
 </style>
 
 <body style="text-align: center;">
     <div id="Zl">
-        <iframe id="preview" frameborder="0" width="100%" height="400px" scrolling='auto'></iframe>
+        <iframe id="preview" frameborder="0" width="100%" height="45px" scrolling='auto'></iframe>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <img id="myImg" src="" class="qrcodeClass" />
 
     <script>
         var url = document.location.toString();
@@ -84,7 +77,8 @@
             window.addEventListener('message', event => {
                 console.log("message==", event);
                 const data = event.data;
-                window.location.href = data;
+                document.getElementById('myImg').src = data.img;
+
             }, false)
         };
 
